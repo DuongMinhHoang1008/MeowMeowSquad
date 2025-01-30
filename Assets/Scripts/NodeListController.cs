@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NodeListController : MonoBehaviour
 {
     [SerializeField] GameObject NodePref;
     [SerializeField] List<GameObject> nodeLists = new List<GameObject>();
-    int index = 0;
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 5; i++) {
-            GameObject node = Instantiate(NodePref, transform.position + Vector3.left * i * 2, Quaternion.identity);
+        for (int i = 0; i < 10; i++) {
+            GameObject node = Instantiate(NodePref, transform.position + Vector3.left * i * 1.5f, Quaternion.identity);
             nodeLists.Add(node);
         }
     }

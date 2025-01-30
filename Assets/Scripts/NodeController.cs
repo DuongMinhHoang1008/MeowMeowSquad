@@ -22,7 +22,7 @@ public class NodeController : MonoBehaviour
     {
         int direction = 1;
         if (!isGoUp) direction = -1;
-        speed += direction * acceleration;
+        speed += direction * acceleration * Time.deltaTime;
         if (speed > MAX_SPEED) {
             speed = MAX_SPEED;
         }
@@ -32,7 +32,7 @@ public class NodeController : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        Vector2 movePos = rigidbody2D.position + speed * Vector2.up * Time.deltaTime;
+        Vector2 movePos = rigidbody2D.position + speed * Vector2.up * Time.fixedDeltaTime;
         rigidbody2D.MovePosition(movePos);
     }
 
